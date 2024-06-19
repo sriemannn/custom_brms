@@ -50,14 +50,6 @@ posterior_epred_hurdle_gaussian <- function(prep) {
 }
 
 
-log_lik_weight <- function(x, i, prep) {
-  weight <- prep$data$weights[i]
-  if (!is.null(weight)) {
-    x <- x * weight
-  }
-  x
-}
-
 log_lik_hurdle_gaussian <- function(i, prep) {
   mu <- brms::get_dpar(prep, "mu", i = i)
   sigma <- brms::get_dpar(prep, "sigma", i = i)
